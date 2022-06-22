@@ -9,7 +9,7 @@ const {v4: uuidv4} = require('uuid');
 module.exports = {
   getManga: async (req, res) => {
     try {
-      const mangas = await Manga.find().select(['id', 'title', 'text']);
+      const mangas = await Manga.find().select(['id', 'title', 'author', 'editor']);
       return res.json(mangas);
     } catch (e) {
       console.error(e);
@@ -17,7 +17,7 @@ module.exports = {
     }
   },
 
-  geOneManga: async (req, res) => {
+  getOneManga: async (req, res) => {
     try {
       const mangas = await Manga.find({id: req.params.id});
       return res.json(mangas);
