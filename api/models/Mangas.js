@@ -6,10 +6,10 @@
  */
 
 module.exports = {
-  tableName: 'mangas', primaryKey: 'id',
+  tableName: 'mangas', primaryKey: 'idManga',
   attributes: {
-    id: {
-      type: 'string',
+    idManga: {
+      type: 'int',
       unique: true,
       required: true,
       columnName: 'idManga'
@@ -17,6 +17,14 @@ module.exports = {
     title: {
       type: 'string',
       columnName: 'title',
+    },
+    author: {
+      type: 'string',
+      columnName: 'author',
+    },
+    editor: {
+      type: 'string',
+      columnName: 'editor',
     },
   },
 

@@ -19,7 +19,7 @@ module.exports.routes = {
    *                                                                          *
    ***************************************************************************/
 
-  '/': {view: 'pages/homepage'},
+  '/': { view: 'pages/homepage' },
 
   /*MangaController*/
   'GET /manga': {
@@ -30,7 +30,7 @@ module.exports.routes = {
     controller: 'MangaController',
     action: 'getOneManga'
   },
-  'manga /manga/create': {
+  'POST /manga/create': {
     controller: 'mangaController',
     action: 'createManga',
   },
@@ -45,6 +45,149 @@ module.exports.routes = {
     action: 'deleteManga'
   },
 
+  /*BookstoreController*/
+  'GET /bookstore': {
+    controller: 'BookstoresController',
+    action: 'getBookstore'
+  },
+  'GET /bookstore/:id': {
+    controller: 'BookstoresController',
+    action: 'getOneBookstore'
+  },
+  'POST /bookstore/create': {
+    controller: 'BookstoresController',
+    action: 'createBookstore',
+  },
+
+  'PUT /bookstore/:id': {
+    controller: 'BookstoresController',
+    action: 'modifyBookstore'
+  },
+
+  'DELETE /bookstore/:id': {
+    controller: 'BookstoresController',
+    action: 'deleteBookstore'
+  },
+
+  /*CopiesController*/
+  'GET /copies': {
+    controller: 'CopiesController',
+    action: 'getCopies'
+  },
+  'GET /copies/:id': {
+    controller: 'CopiesController',
+    action: 'getOneCopies'
+  },
+  'POST /copies/create': {
+    controller: 'CopiesController',
+    action: 'createCopies',
+  },
+
+  'PUT /copies/:id': {
+    controller: 'CopiesController',
+    action: 'modifyCopies'
+  },
+
+  'DELETE /copies/:id': {
+    controller: 'CopiesController',
+    action: 'deleteCopies'
+  },
+
+  /*GenresController*/
+  'GET /genres': {
+    controller: 'GenresController',
+    action: 'getGenre'
+  },
+  'GET /genres/:id': {
+    controller: 'GenresController',
+    action: 'getOneGenre'
+  },
+  'POST /genres/create': {
+    controller: 'GenresController',
+    action: 'createGenre',
+  },
+
+  'PUT /genres/:id': {
+    controller: 'GenresController',
+    action: 'modifyGenre'
+  },
+
+  'DELETE /genres/:id': {
+    controller: 'GenresController',
+    action: 'deleteGenre'
+  },
+
+  /*MangaGenreController*/
+  'GET /mangagenre': {
+    controller: 'MangaGenreController',
+    action: 'getMangaGenre'
+  },
+  'GET /mangagenre/:id': {
+    controller: 'MangaGenreController',
+    action: 'getOneMangaGenre'
+  },
+  'POST /mangagenre/create': {
+    controller: 'MangaGenreController',
+    action: 'createMangaGenre',
+  },
+
+  'PUT /mangagenre/:id': {
+    controller: 'MangaGenreController',
+    action: 'modifyMangaGenre'
+  },
+
+  'DELETE /mangagenre/:id': {
+    controller: 'MangaGenreController',
+    action: 'deleteMangaGenre'
+  },
+
+  /*OrdersController*/
+  'GET /orders': {
+    controller: 'OrdersController',
+    action: 'getOrder'
+  },
+  'GET /orders/:id': {
+    controller: 'OrdersController',
+    action: 'getOneOrder'
+  },
+  'POST /orders/create': {
+    controller: 'OrdersController',
+    action: 'createOrder',
+  },
+
+  'PUT /orders/:id': {
+    controller: 'OrdersController',
+    action: 'modifyOrder'
+  },
+
+  'DELETE /orders/:id': {
+    controller: 'OrdersController',
+    action: 'deleteOrder'
+  },
+
+  /*UsersController*/
+  'GET /users': {
+    controller: 'UsersController',
+    action: 'getUser'
+  },
+  'GET /users/:id': {
+    controller: 'UsersController',
+    action: 'getOneUser'
+  },
+  'POST /users/create': {
+    controller: 'UsersController',
+    action: 'createUser',
+  },
+
+  'PUT /users/:id': {
+    controller: 'UsersController',
+    action: 'modifyUser'
+  },
+
+  'DELETE /users/:id': {
+    controller: 'UsersController',
+    action: 'deleteUser'
+  },
 
   /***************************************************************************
    *                                                                          *

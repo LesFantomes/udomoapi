@@ -6,23 +6,34 @@
  */
 
 module.exports = {
-
+  tableName: 'bookstores', primaryKey: 'idBookstore',
   attributes: {
-
-    //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
-    //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
-    //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
-
-    //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
-    //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
-    //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
-
-
-    //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
-    //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
-    //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-
+    idBookstore: {
+      type: 'int',
+      unique: true,
+      required: true,
+      columnName: 'idBookstore'
+    },
+    name: {
+      type: 'string',
+      columnName: 'name',
+    },
+    address: {
+      type: 'string',
+      columnName: 'address',
+    },
+    city: {
+      type: 'string',
+      columnName: 'city',
+    },
+    zip: {
+      type: 'string',
+      columnName: 'zip',
+    },
+    schedule: {
+      type: 'string',
+      columnName: 'schedule',
+    },
   },
 
 };
