@@ -15,17 +15,17 @@ module.exports = {
           return res.serverError(e);
         }
       },
-    
+
       getOneMangaGenre: async (req, res) => {
         try {
-          const mangaGenres = await MangaGenre.find({idMangaGenre: req.params.idMangaGenre});
-          return res.json(mangaGenres);
+          const mangaGenre = await MangaGenre.find({idMangaGenre: req.params.idMangaGenre});
+          return res.json(mangaGenre);
         } catch (e) {
           console.error(e);
           return res.serverError(e);
         }
       },
-    
+
       createMangaGenre: async (req, res) => {
         try {
           const mangaGenre = await MangaGenre.create({
@@ -40,7 +40,7 @@ module.exports = {
           return res.serverError(e);
         }
       },
-    
+
       modifyMangaGenre: async (req, res) => {
         try {
           const mangaGenre = await MangaGenre.update({
@@ -56,7 +56,7 @@ module.exports = {
           return res.serverError(e);
         }
       },
-    
+
       deleteMangaGenre: async (req, res) => {
         try {
           const mangaGenre = await MangaGenre.destroy({

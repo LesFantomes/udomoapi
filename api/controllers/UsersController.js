@@ -8,7 +8,7 @@
 module.exports = {
   getUser: async (req, res) => {
     try {
-      const users = await User.find().select(['idUser', 'firstname', 'lastname', 'email', 'password', 'isLibrarian', 'isAdmin', 'idBookstore']);
+      const users = await Users.find().select(['idUser', 'firstname', 'lastname', 'email', 'password', 'isLibrarian', 'isAdmin', 'idBookstore']);
       return res.json(users);
     } catch (e) {
       console.error(e);
@@ -18,7 +18,7 @@ module.exports = {
 
   getOneUser: async (req, res) => {
     try {
-      const users = await User.find({ idUser: req.params.idUser });
+      const users = await Users.find({ idUser: req.params.idUser });
       return res.json(users);
     } catch (e) {
       console.error(e);
@@ -28,7 +28,7 @@ module.exports = {
 
   createUser: async (req, res) => {
     try {
-      const user = await User.create({
+      const user = await Users.create({
         idUser: req.body.idUser,
         firstname: req.body.firstname,
         lastname: req.body.lastname,
@@ -47,7 +47,7 @@ module.exports = {
 
   modifyUser: async (req, res) => {
     try {
-      const user = await User.update({
+      const user = await Users.update({
         idUser: req.params.idUser,
       }).set({
         firstname: req.body.firstname,
@@ -67,7 +67,7 @@ module.exports = {
 
   deleteUser: async (req, res) => {
     try {
-      const user = await User.destroy({
+      const user = await Users.destroy({
         idUser: req.params.idUser,
       });
       return res.json(user);

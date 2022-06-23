@@ -8,27 +8,27 @@
 module.exports = {
     getGenre: async (req, res) => {
         try {
-          const genres = await Genre.find().select(['idGenre', 'name']);
+          const genres = await Genres.find().select(['idGenre', 'name']);
           return res.json(genres);
         } catch (e) {
           console.error(e);
           return res.serverError(e);
         }
       },
-    
+
       getOneGenre: async (req, res) => {
         try {
-          const Genres = await Genre.find({idGenre: req.params.idGenre});
+          const genres = await Genres.find({idGenre: req.params.idGenre});
           return res.json(genres);
         } catch (e) {
           console.error(e);
           return res.serverError(e);
         }
       },
-    
+
       createGenre: async (req, res) => {
         try {
-          const genre = await Genre.create({
+          const genre = await Genres.create({
             idGenre: req.body.idGenre,
             name: req.body.name,
           }).fetch();
@@ -38,10 +38,10 @@ module.exports = {
           return res.serverError(e);
         }
       },
-    
+
       modifyGenre: async (req, res) => {
         try {
-          const genre = await Genre.update({
+          const genre = await Genres.update({
             idGenre: req.params.idGenre,
           }).set({
             name: req.body.name,
@@ -52,10 +52,10 @@ module.exports = {
           return res.serverError(e);
         }
       },
-    
+
       deleteGenre: async (req, res) => {
         try {
-          const genre = await Genre.destroy({
+          const genre = await Genres.destroy({
             idGenre: req.params.idGenre,
           });
           return res.json(genre);

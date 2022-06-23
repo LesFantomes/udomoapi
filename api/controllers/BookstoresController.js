@@ -8,27 +8,27 @@
 module.exports = {
     getBookstore: async (req, res) => {
         try {
-          const bookstores = await Bookstore.find().select(['idBookstore', 'idUser', 'status']);
+          const bookstores = await Bookstores.find().select(['idBookstore', 'idUser', 'status']);
           return res.json(bookstores);
         } catch (e) {
           console.error(e);
           return res.serverError(e);
         }
       },
-    
+
       getOneBookstore: async (req, res) => {
         try {
-          const bookstores = await Bookstore.find({idBookstore: req.params.idBookstore});
-          return res.json(bookstores);
+          const bookstore = await Bookstores.find({idBookstore: req.params.idBookstore});
+          return res.json(bookstore);
         } catch (e) {
           console.error(e);
           return res.serverError(e);
         }
       },
-    
+
       createBookstore: async (req, res) => {
         try {
-          const bookstore = await Bookstore.create({
+          const bookstore = await Bookstores.create({
             idBookstore: req.body.idBookstore,
             name: req.body.name,
             address: req.body.address,
@@ -42,10 +42,10 @@ module.exports = {
           return res.serverError(e);
         }
       },
-    
+
       modifyBookstore: async (req, res) => {
         try {
-          const bookstore = await Bookstore.update({
+          const bookstore = await Bookstores.update({
             idBookstore: req.params.idBookstore,
           }).set({
             name: req.body.name,
@@ -60,10 +60,10 @@ module.exports = {
           return res.serverError(e);
         }
       },
-    
+
       deleteBookstore: async (req, res) => {
         try {
-          const bookstore = await Bookstore.destroy({
+          const bookstore = await Bookstores.destroy({
             idBookstore: req.params.idBookstore,
           });
           return res.json(bookstore);

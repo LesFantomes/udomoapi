@@ -8,27 +8,27 @@
 module.exports = {
     getOrder: async (req, res) => {
         try {
-          const orders = await Order.find().select(['idOrder', 'idUser', 'status']);
+          const orders = await Orders.find().select(['idOrder', 'idUser', 'status']);
           return res.json(orders);
         } catch (e) {
           console.error(e);
           return res.serverError(e);
         }
       },
-    
+
       getOneOrder: async (req, res) => {
         try {
-          const orders = await Order.find({idOrder: req.params.idOrder});
+          const orders = await Orders.find({idOrder: req.params.idOrder});
           return res.json(orders);
         } catch (e) {
           console.error(e);
           return res.serverError(e);
         }
       },
-    
+
       createOrder: async (req, res) => {
         try {
-          const order = await Order.create({
+          const order = await Orders.create({
             idOrder: req.body.idOrder,
             idUser: req.body.idUser,
             status: req.body.status,
@@ -39,10 +39,10 @@ module.exports = {
           return res.serverError(e);
         }
       },
-    
+
       modifyOrder: async (req, res) => {
         try {
-          const order = await Order.update({
+          const order = await Orders.update({
             idOrder: req.params.idOrder,
           }).set({
             idUser: req.body.idUser,
@@ -54,10 +54,10 @@ module.exports = {
           return res.serverError(e);
         }
       },
-    
+
       deleteOrder: async (req, res) => {
         try {
-          const order = await Order.destroy({
+          const order = await Orders.destroy({
             idOrder: req.params.idOrder,
           });
           return res.json(order);

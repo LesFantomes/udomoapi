@@ -9,7 +9,7 @@ const {v4: uuidv4} = require('uuid');
 module.exports = {
   getManga: async (req, res) => {
     try {
-      const mangas = await Manga.find().select(['idManga', 'title', 'author', 'editor']);
+      const mangas = await Mangas.find().select(['idManga', 'title', 'author', 'editor']);
       return res.json(mangas);
     } catch (e) {
       console.error(e);
@@ -19,8 +19,8 @@ module.exports = {
 
   getOneManga: async (req, res) => {
     try {
-      const mangas = await Manga.find({idManga: req.params.idManga});
-      return res.json(mangas);
+      const manga = await Mangas.find({idManga: req.params.idManga});
+      return res.json(manga);
     } catch (e) {
       console.error(e);
       return res.serverError(e);
@@ -29,7 +29,7 @@ module.exports = {
 
   createManga: async (req, res) => {
     try {
-      const manga = await Manga.create({
+      const manga = await Mangas.create({
         idManga: req.body.idManga,
         title: req.body.title,
         author: req.body.author,
@@ -44,7 +44,7 @@ module.exports = {
 
   modifyManga: async (req, res) => {
     try {
-      const manga = await Manga.update({
+      const manga = await Mangas.update({
         idManga: req.params.idManga,
       }).set({
         title: req.body.title,
@@ -60,7 +60,7 @@ module.exports = {
 
   deleteManga: async (req, res) => {
     try {
-      const manga = await Manga.destroy({
+      const manga = await Mangas.destroy({
         idManga: req.params.idManga,
       });
       return res.json(manga);
